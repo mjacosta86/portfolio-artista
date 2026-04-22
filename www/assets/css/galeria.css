@@ -1,0 +1,273 @@
+/* ═══════════════════════════════════════════════════════
+   MAYA ARÉVALO — galeria.css
+   Estilos específicos de las páginas de galería
+═══════════════════════════════════════════════════════ */
+
+/* ── Cabecera de galería ────────────────────────────── */
+.galeria-header {
+    position: relative;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+.galeria-header--pintura     { background: linear-gradient(135deg, #F2E8DC, #EDD5C0); }
+.galeria-header--escultura   { background: linear-gradient(135deg, #EDE8E2, #DDD5CA); }
+.galeria-header--ceramica    { background: linear-gradient(135deg, #F0E6D8, #E5D4C0); }
+.galeria-header--restauracion{ background: linear-gradient(135deg, #EDE5D5, #DDD0B8); }
+
+.galeria-header-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 300px 300px;
+    pointer-events: none;
+}
+
+.galeria-header-inner {
+    max-width: 600px;
+}
+
+.galeria-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.1;
+    margin: 0.25rem 0 0.5rem;
+}
+
+.galeria-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--brown-light);
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+/* ── Navegación entre categorías ────────────────────── */
+.galeria-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.galeria-nav-link {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    background: transparent;
+    transition: all var(--transition);
+}
+
+.galeria-nav-link:hover {
+    background: var(--cream-dark);
+    color: var(--brown);
+    border-color: var(--brown-light);
+}
+
+.galeria-nav-link.active {
+    background: var(--terracota);
+    color: var(--white);
+    border-color: var(--terracota);
+}
+
+/* ── Grid de obras ──────────────────────────────────── */
+.galeria-grid {
+    background: var(--white);
+}
+
+/* ── Tarjeta de obra ────────────────────────────────── */
+.obra-card {
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: pointer;
+}
+
+.obra-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.obra-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.obra-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.obra-card:hover .obra-img {
+    transform: scale(1.04);
+}
+
+.obra-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(61, 43, 31, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.obra-card:hover .obra-overlay {
+    opacity: 1;
+}
+
+.obra-zoom-btn {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.6);
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.obra-zoom-btn:hover {
+    background: var(--terracota);
+    border-color: var(--terracota);
+}
+
+.obra-info {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.obra-titulo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 0.25rem;
+}
+
+.obra-meta {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--brown-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+}
+
+/* ── Modal lightbox ─────────────────────────────────── */
+.obra-modal-content {
+    background: var(--cream);
+    border: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-height: 70vh;
+}
+
+.obra-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    background: rgba(61,43,31,.6);
+    color: var(--white);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.obra-modal-close:hover {
+    background: var(--brown);
+}
+
+.obra-modal-img-col {
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.obra-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.obra-modal-info-col {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+}
+
+.obra-modal-titulo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.2;
+}
+
+.obra-modal-meta {
+    border-top: 1px solid var(--sand);
+    padding-top: 1.5rem;
+}
+
+.obra-modal-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.obra-modal-label {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracota);
+    margin-bottom: 0.2rem;
+}
+
+.obra-modal-val {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--brown-mid);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 991px) {
+    .obra-modal-img-col { min-height: 280px; }
+    .obra-modal-info-col { padding: 2rem 1.5rem; }
+}
+
+@media (max-width: 575px) {
+    .galeria-nav { gap: 0.4rem; }
+    .galeria-nav-link { font-size: 0.68rem; padding: 0.35rem 0.75rem; }
+}
