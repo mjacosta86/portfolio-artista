@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — Maya Arévalo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/interior.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-initials">M·A·Y</span>
+                <span class="brand-name">Maya Arévalo</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Galería</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="galeria/pintura.html">Pintura</a></li>
+                            <li><a class="dropdown-item" href="galeria/escultura.html">Escultura</a></li>
+                            <li><a class="dropdown-item" href="galeria/ceramica.html">Cerámica</a></li>
+                            <li><a class="dropdown-item" href="galeria/restauracion.html">Restauración</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-contacto active" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CABECERA -->
+    <header class="interior-header interior-header--contacto">
+        <div class="interior-header-texture"></div>
+        <div class="container position-relative">
+            <div class="interior-header-inner">
+                <p class="section-label">Estoy aquí</p>
+                <h1 class="interior-title">Contacto</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTACTO PRINCIPAL -->
+    <section class="py-6">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+
+                <!-- Columna izquierda: info -->
+                <div class="col-lg-4">
+                    <p class="section-label">Cuéntame</p>
+                    <h2 class="section-title mb-4">Hablemos<br><em>de tu proyecto</em></h2>
+                    <p class="bio-text">Tanto si tienes un encargo concreto como si simplemente quieres hacer una consulta, escríbeme. Respondo en un plazo de 24–48 horas.</p>
+
+                    <div class="contacto-info mt-5">
+                        <div class="contacto-info-item">
+                            <span class="contacto-info-label">Email</span>
+                            <a href="mailto:hola@mayaarevalo.es" class="contacto-info-val">hola@mayaarevalo.es</a>
+                        </div>
+                        <div class="contacto-info-item">
+                            <span class="contacto-info-label">Ubicación</span>
+                            <span class="contacto-info-val">Castilla y León, España</span>
+                        </div>
+                        <div class="contacto-info-item">
+                            <span class="contacto-info-label">Respuesta</span>
+                            <span class="contacto-info-val">24 – 48 horas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna derecha: formulario -->
+                <div class="col-lg-7 offset-lg-1">
+                    <div class="contacto-form-wrap">
+
+                        <!-- Mensaje de éxito (oculto por defecto) -->
+                        <div id="formSuccess" class="form-success d-none">
+                            <h3 class="form-success-title">¡Mensaje enviado!</h3>
+                            <p class="form-success-text">Gracias por escribirme. Te responderé en un plazo de 24–48 horas.</p>
+                        </div>
+
+                        <!-- Formulario (Netlify Forms listo para producción) -->
+                        <form id="contactoForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+                            <input type="hidden" name="form-name" value="contacto">
+                            <input type="hidden" name="bot-field" style="display:none">
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label class="form-label-custom" for="nombre">Nombre *</label>
+                                        <input type="text" id="nombre" name="nombre" class="form-control-custom" placeholder="Tu nombre" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label class="form-label-custom" for="email">Email *</label>
+                                        <input type="email" id="email" name="email" class="form-control-custom" placeholder="tu@email.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group-custom">
+                                        <label class="form-label-custom" for="asunto">Asunto</label>
+                                        <select id="asunto" name="asunto" class="form-control-custom">
+                                            <option value="" disabled selected>Selecciona un tema</option>
+                                            <option value="encargo">Encargo artístico</option>
+                                            <option value="restauracion">Restauración de obra</option>
+                                            <option value="taller">Talleres y clases</option>
+                                            <option value="colaboracion">Colaboración</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group-custom">
+                                        <label class="form-label-custom" for="mensaje">Mensaje *</label>
+                                        <textarea id="mensaje" name="mensaje" class="form-control-custom" rows="6" placeholder="Cuéntame en qué puedo ayudarte..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <button type="submit" class="btn btn-primary-custom w-100" id="submitBtn">
+                                        Enviar mensaje
+                                    </button>
+                                </div>
+                                <div class="col-12">
+                                    <p class="form-note">* Campos obligatorios. Tus datos se usan únicamente para responder a tu consulta.</p>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <span class="brand-initials">M·A·Y</span>
+                    <span class="brand-name ms-2">Maya Arévalo</span>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <small class="footer-copy">Pintura · Escultura · Cerámica · Restauración</small>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <small class="footer-copy">© 2025 Maya Arévalo</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contacto.js"></script>
+</body>
+</html>
